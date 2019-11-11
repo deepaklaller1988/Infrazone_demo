@@ -1,0 +1,99 @@
+<!-- <div class="left-bar left-bar-mobile"><span class="menu-ham" onclick="openNav()">&#9776;</span>
+	<b class="close-menu">+</b> 
+  <div class="proffile-hub"> 
+    <div class="pro-set"> -->
+
+<!-- <<<<<<< HEAD
+<div class="left-bar"> 
+  <div class="proffile-hub"> 
+    <div class="pro-set">
+     <span><img *ngIf="userdetails && userdetails.user_profile && userdetails.user_profile.image " src="{{userdetails.user_profile.image}}" alt="profile pic">
+======= -->
+
+<div class="left-set">
+    <div class="left-bar"><span class="menu-ham" (click)="openNav()">&#9776;</span>
+        <b class="close-menu" (click)="closeNav()">+</b>
+        <div class="proffile-hub">
+            <div class="pro-set">
+                <span><img *ngIf="userdetails && userdetails.user_profile && userdetails.user_profile.image " src="{{userdetails.user_profile.image}}" alt="profile pic">
+
+       <img *ngIf="!(userdetails && userdetails.user_profile && userdetails.user_profile.image)" src="../../../assets/images/username.png" alt="profile pic">
+       <b>Upload</b><input type="file" (change)="onImageChange($event, 1)"  #fileInput accept='image/*'/></span>
+
+
+                <section><b>{{userName}}</b>
+                    <p>{{userDesignation}}<i *ngIf="userOrganization">@{{userOrganization}}</i></p><strong>{{userCity}}</strong></section>
+            </div>
+            <ul>
+                <li><a [routerLink]="['/my-profile']">my profile</a></li>
+                <li *ngIf="profileComplete == 1"><a [routerLink]="['/edit-profile']">edit profile</a></li>
+                <li *ngIf="profileComplete == 0"><a [routerLink]="['/profile']">edit profile</a></li>
+                <li><a [routerLink]="['/logout']">logout</a></li>
+            </ul>
+        </div>
+        <div class="all-links">
+            <ul>
+                <li [ngClass]="{'active-link': url == '/feeds'}">
+                    <a (click)="router.navigate(['feeds', {tab:1,type:0,page:1}]);"><span><img src="../../../assets/images/my_all_posts.png" alt="Leaderboard" /></span> Feeds<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/my-profile'}">
+                    <a [routerLink]="['/my-profile']"><span><img src="../../../assets/images/my_all_posts.png" alt="Leaderboard" /></span> My All Posts<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/favorites'}">
+                    <a [routerLink]="['/favorites']"><span><img src="../../../assets/images/my_favorite.png" alt="Leaderboard" /></span> My Favorites<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/followers'}">
+                    <a [routerLink]="['/followers']"><span><img src="../../../assets/images/follower_following.png" alt="Leaderboard" /></span> My Followers/My Followings<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/accept-reject-follow'}">
+                    <a [routerLink]="['/accept-reject-follow']"><span><img src="../../../assets/images/pending_request.png" alt="Leaderboard" /></span> Pending Requests<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/edit-category'}">
+                    <a [routerLink]="['/edit-category']"><span><img src="../../../assets/images/categories.png" alt="Leaderboard" /></span> Categories <i>{{usercategory}}</i><img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/save-posts'}">
+                    <a [routerLink]="['/save-posts']"><span><img src="../../../assets/images/saved_images.png" alt="Leaderboard" /></span> Saved Images<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/groups'}">
+                    <a [routerLink]="['/groups']"><span><img src="../../../assets/images/my_groups.png" alt="Leaderboard" /></span> My Groups<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/notification'}">
+                    <a [routerLink]="['/notification']"><span><img src="../../../assets/images/bell_icon.png" alt="Leaderboard" /></span> Notifications<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/winners'}">
+                    <a [routerLink]="['/winners']"><span><img src="../../../assets/images/leaderboard.png" alt="Leaderboard" /></span> Leaderboard<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+
+
+                <!--  <li [ngClass]="{'active-link': url == '/message'}"><a [routerLink] = "['/message']">Messages</a></li><li><a href="">All Posts</a></li> -->
+                <!-- <li><a href="">My Discussions</a></li> -->
+                <!-- <li><a href="">My Ideas</a></li> -->
+                <!-- <li><a href="">My Jugaads</a></li> -->
+                <!-- <li><a href="">My Videos</a></li> -->
+                <!-- <li [ngClass]="{'active-link': url == '/winners'}"><a  [routerLink] = "['/winners']">Earn Points & Awarded</a></li> -->
+                <!-- <li [ngClass]="{'active-link': url == '/accept-reject-follow'}"><a [routerLink] = "['/accept-reject-follow']">Requests Recieved</a></li> 
+        
+        <li [ngClass]="{'active-link': url == '/expert-profile'}"><a  [routerLink] = "['/expert-profile']">Expert Profile</a></li>-->
+                <li [ngClass]="{'active-link': url == '/user-setting'}">
+                    <a [routerLink]="['/user-setting']"><span><img src="../../../assets/images/general_setting.png" alt="Leaderboard" /></span>General Settings<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/user-account-setting'}">
+                    <a [routerLink]="['/user-account-setting']"><span><img src="../../../assets/images/account_setting.png" alt="Leaderboard" /></span>Account Settings<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/expert-profile'}" *ngIf="total_earned_points > 500">   
+                    <a class="hideLi" [routerLink]="['/expert-profile']"><span><img src="../../../assets/images/expert-profile.png" alt="Leaderboard" /></span>Expert Profile <img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/help'}">
+                    <a [routerLink]="['/help']"><span><img src="../../../assets/images/help.png" alt="Leaderboard" /></span>Help<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li [ngClass]="{'active-link': url == '/privacy-policy'}">
+                    <a [routerLink]="['/privacy-policy']"><span><img src="../../../assets/images/legal_policy.png" alt="Leaderboard" /></span>Legal Policy<img class="arrow-set-menu" src="../../../assets/images/arrow_menu.png" alt="arrow" /></a>
+                </li>
+                <li *ngIf="total_earned_points > 0">
+                    <a class="user_total_points" [routerLink]="['/point-earned']">{{total_earned_points | number:'1.0-0'}} POINTS EARNED</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

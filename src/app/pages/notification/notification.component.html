@@ -1,0 +1,59 @@
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<app-header (postSearch)="postSearch($event)"></app-header>
+<div class="main">
+    <div class="wrapper">
+        <app-side-bar-left></app-side-bar-left> 
+        <div class="middle-bar">
+            <div class="expert_pannel">
+                <h3>notifications</h3>
+                <div class="clear_all_notifications" (click)="deleteAllNotifications()">Clear</div>
+            </div>
+            <ng-container *ngFor="let notificationData of notifications; let p = index">
+                <ul class="notifications abc" id="feed{{ p }}-notification-item{{ i }}" *ngFor="let notification of notificationData.data; let i = index">
+                    <li [ngClass]="{ 'liked-active': notification.view_status == '0' }">
+                        <a class="clickable" (click)="notificationViewstatus(notification.id, notification.item_id, notification.view_status, notification.notification_type)">
+                            <div class="noti-image">
+                                <span>
+                  <img
+                    *ngIf="
+                      notification &&
+                      notification.userdetails[0] &&
+                      notification.userdetails[0].image"
+                    src="{{ notification.userdetails[0]?.image }}"
+                    alt="user"/>
+                  <img
+                    *ngIf="
+                      !(
+                        notification &&
+                        notification.userdetails[0] &&
+                        notification.userdetails[0].image
+                      )
+                    "
+                    src="../../../assets/images/username.png"
+                    alt="userDummy"
+                /></span>
+                                <img class="tag-icon" src="../../../assets/notification_images/{{
+                    notification.notification_type
+                  }}.png" />
+                            </div>
+                            <div class="noti-desc">
+                                <p>
+                                    {{notification.userdetails[0]?.name}} has <span class="" [innerHtml]="notification.text | NotificationStringFormat"></span>
+                                </p>
+                                <section>
+                                    <span><b>{{ notification.updated_at | timeAgo }}</b></span>
+                                </section>
+                                <i class='fas fa-trash-alt' (click)="deleteNotification(notification.id, $event)"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+            <div class="feed-spinner full-width content-center" *ngIf="loadMore">
+                <mat-progress-spinner class="margin-top-4 margin-bottom-4" mode="indeterminate" [strokeWidth]="4" [diameter]="30"></mat-progress-spinner>
+            </div>
+        </div>
+        <app-side-bar-right></app-side-bar-right>
+    </div>
+</div>
+<app-footer></app-footer>

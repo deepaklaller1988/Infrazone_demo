@@ -1,0 +1,94 @@
+<app-header (postSearch)="postSearch($event)"></app-header>
+<div class="main">
+    <div class="wrapper">
+        <app-side-bar-left></app-side-bar-left>
+        <!--left bar close-->
+        <div class="middle-bar">
+            <div class="main-tabs">
+                <ul>
+                    <li [ngClass]="{'main-tabs-active': selectedType=='0'}"><a (click)="selectedPage = '1';getPosts(selectedTab,'0',selectedPage,true);">All</a></li>
+                    <li [ngClass]="{'main-tabs-active': selectedType=='1'}"><a (click)="selectedPage = '1';getPosts(selectedTab,'1',selectedPage,true);">Posts</a></li>
+                    <li [ngClass]="{'main-tabs-active': selectedType=='3'}"><a (click)="selectedPage = '1';getPosts(selectedTab,'3',selectedPage,true);">Query</a></li>
+                    <li [ngClass]="{'main-tabs-active': selectedType=='2'}"><a (click)="selectedPage = '1';getPosts(selectedTab,'2',selectedPage,true);">Ideas</a></li>
+                    <li [ngClass]="{'main-tabs-active': selectedType=='4'}"><a (click)="selectedPage = '1';getPosts(selectedTab,'4',selectedPage,true);">Projects</a></li>
+                </ul>
+            </div>
+            <!--main tabs close-->
+            <div class="categories-main">
+                <app-add-post (refresh)="refresh($event)"></app-add-post>
+                <!--post field close-->
+                <div class="ads-section">
+
+                    <p>MOST POINT EARNED <b>THIS WEEK</b> <b> {{categoryName}}</b></p>
+<!-- =======
+                    <p>most POINT EARNED <b>THIS WEEK</b> <b> {{categoryName}}</b></p>
+>>>>>>> c3ab09d83eece8bd3de5058438a9670ca34e3a96 -->
+                    <ul *ngIf="!weeklyExpertsLoad">
+                        <li *ngFor="let weeklyExpert of weeklyExperts let i = index ">
+                            <a>
+                                <div class="image-count">
+                                    <span>
+                                        <img *ngIf="weeklyExpert && weeklyExpert.userdetails && weeklyExpert.userdetails.image " src="{{weeklyExpert.userdetails.image}}" alt="img" >
+                                        <img *ngIf="!(weeklyExpert && weeklyExpert.userdetails && weeklyExpert.userdetails.image)" src="../../../assets/images/username.png" alt="img" >
+                                    </span>
+                                    <i>{{ weeklyExpert.points  | number :'1.0-0' }}</i>
+                                </div>
+                                <div class="details-winner">
+                                    <h6>{{weeklyExpert.userdetails?.name}}</h6>
+                                    <div class="designation"> {{weeklyExpert.userdetails?.designation}}</div>
+                                    <i *ngIf="weeklyExpert.userdetails?.organisation">@{{weeklyExpert.userdetails?.organisation}}</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li *ngIf="weeklyExperts?.length == 0">
+                            <a>
+                                <span>No Data Available</span>
+                            </a>
+                        </li>
+                        <li *ngIf="weeklyExperts?.length <= 1 ">
+                            <a>
+                                <span>No Data Available</span>
+                            </a>
+                        </li>
+                        <li *ngIf="weeklyExperts?.length <= 2">
+                            <a>
+                                <span>No Data Available</span>
+                            </a>
+                        </li>
+                        <li> <a [routerLink]="['/winners']">all</a> </li>
+                    </ul>
+                    <div class="feed-spinner full-width content-center" *ngIf="weeklyExpertsLoad">
+                        <mat-progress-spinner class="margin-top-1 margin-bottom-1" mode="indeterminate" [strokeWidth]="4" [diameter]="30"></mat-progress-spinner>
+                    </div>
+                </div>
+                <!--ads-section close-->
+                <div class="feeds-all">
+                    <div class="feeds-tab">
+                        <ul>
+                            <li [ngClass]="{'feeds-tab-active': selectedTab == '2'}"><a (click)="selectedPage = '1';getPosts('2',selectedType,selectedPage,true);">popular</a></li>
+                            <li [ngClass]="{'feeds-tab-active': selectedTab == '1'}"><a (click)="selectedPage = '1';getPosts('1',selectedType,selectedPage,true);">recent post</a></li>
+                            <li [ngClass]="{'feeds-tab-active': selectedTab == '0'}"><a (click)="selectedPage = '1';getPosts('0',selectedType,selectedPage,true);">Followings Post</a></li>
+                        </ul>
+                    </div>
+                    <div class="feed-spinner full-width content-center" *ngIf="loadingPosts">
+                        <mat-progress-spinner class="margin-top-4 margin-bottom-4" mode="indeterminate" [strokeWidth]="4" [diameter]="30"></mat-progress-spinner>
+                    </div>
+                    <app-feed-posts (refresh)="refresh($event)" [posts]="posts"></app-feed-posts>
+                    <div class="feed-spinner full-width content-center" *ngIf="loadMore">
+                        <mat-progress-spinner class="margin-top-4 margin-bottom-4" mode="indeterminate" [strokeWidth]="4" [diameter]="30"></mat-progress-spinner>
+                    </div>
+                </div>
+                <!--feeds all close-->
+            </div>
+            <!--categories-main close-->
+        </div>
+        <!--middle bar close-->
+        <app-side-bar-right></app-side-bar-right>
+        <!-------right bar close-->
+    </div>
+</div>
+<!-------main close------>
+
+<!-------share close------>
+<app-footer></app-footer>
+<!-------footer close----->

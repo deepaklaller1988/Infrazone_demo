@@ -1,0 +1,138 @@
+.noti-image span img {
+    width: 100%;
+    height: 45px;
+}
+.abc{
+
+}
+.noti-desc {
+  float: right;
+  width: calc(100% - 60px);
+  position: relative;
+  padding-right: 18px;
+}
+.noti-desc .fa-trash-alt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #35829c;
+  cursor: pointer;
+}
+.expert_pannel{
+  position:relative;
+}
+.clear_all_notifications {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  background: #fff600;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 10px 15px;
+}
+.spiner-margin {
+    margin-left: 368px !important;
+    margin-top: 61px;
+    position: fixed
+  }
+
+/* Center the loader */
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+  
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Add animation to "page content" */
+  .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+  }
+  
+  @-webkit-keyframes animatebottom {
+    from {
+      bottom: -100px;
+      opacity: 0
+    }
+  
+    to {
+      bottom: 0px;
+      opacity: 1
+    }
+  }
+  
+  @keyframes animatebottom {
+    from {
+      bottom: -100px;
+      opacity: 0
+    }
+  
+    to {
+      bottom: 0;
+      opacity: 1
+    }
+  }
+  li.favorite-active {
+    border-left: 3px solid #fcd933!important;
+    background: #f1f1f1;
+  }
+  li.liked-active {
+    border-left: 3px solid #55bed9!important;
+    background: #f1f1f1;
+  }
+  li.respond-active {
+    background: #f1f1f1;
+    border-left: 3px solid #333333!important;
+  }
+  li.tag-active {
+    border-left: 3px solid #8ac311!important;
+    background: #f1f1f1;
+  }
+  li.invite-active {
+    border-left: 3px solid #9878E6!important;
+    background: #f1f1f1;
+  }
+  li.comment-rate-active {
+    border-left: 3px solid #5FA8B2!important;
+    background: #f1f1f1;
+  }
+  ul.notifications {
+    float: left;
+    width: 100%;
+    background: white;
+    padding-top: 0px;
+    }

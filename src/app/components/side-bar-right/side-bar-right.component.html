@@ -1,0 +1,18 @@
+<div class="right-set">
+<div class="right-bar"> <b class="head-all">categories <span class="option" (click)="openFeedsOption('1')"><i></i><i></i><i></i></span>
+    <div [ngStyle]="{'display': option == 1 ? 'block' : 'none'}" class="backdrop" (click)="option=undefined"></div>
+    <div class="unfollow-options" [ngStyle]="{'display': option == 1 ? 'block' : 'none'}">
+      <ul>
+        <li><a [routerLink] = "['/edit-category']">Edit</a></li>
+      </ul>
+    </div> 
+  </b>
+  <ul class="categories-link">
+    <li *ngFor="let category of usercategory let i = index "> 
+      <a class="clickable" title="{{category.categoryname}}"><img class="catagory-image" src="{{category.category.image_url}}" alt="Music" />
+        <div class="long-text-dot-dot-dot">{{category.categoryname}}</div></a></li>
+  </ul>
+</div>
+</div>
+
+<!--  <a class="clickable" matTooltip="{{category.categoryname}}>  -->
